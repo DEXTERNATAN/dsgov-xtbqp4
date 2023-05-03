@@ -28,6 +28,10 @@ export const DateTimePicker = memo((props: Props) => {
   const [dateTimePickerCore, setDateTimePickerCore] = useState<any>();
 
   useEffect(() => {
+    // A propriedade abaixo causa o erro:
+    // -> Error occurred (5:10349) - Maximum call stack size exceeded
+    // Removendo a propriedade do componente abaixo tudo volta a funcionar
+    // Verificar como construir o componente e remover este erro
     const coreDateTimePicker = new core.BRDateTimePicker(
       'br-datetimepicker',
       brDateTimePickerRef.current,
@@ -36,9 +40,14 @@ export const DateTimePicker = memo((props: Props) => {
         maxDate: new Date(),
       }
     );
-
     setDateTimePickerCore(coreDateTimePicker);
-  }, [brDateTimePickerRef.current]);
+  }, [
+    // A propriedade abaixo causa o erro:
+    // -> Error occurred (5:10349) - Maximum call stack size exceeded
+    // Removendo a propriedade do componente abaixo tudo volta a funcionar
+    // Verificar como construir o componente e remover este erro
+    brDateTimePickerRef.current,
+  ]);
 
   const getItem = () => {
     if (brDateTimePickerRef.current) {
