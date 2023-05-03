@@ -1,9 +1,9 @@
-import React, { ChangeEvent, memo, useEffect, useRef, useState } from 'react';
-import { UseFormRegister } from 'react-hook-form';
+import React, { ChangeEvent, memo, useEffect, useRef, useState } from "react";
+import { UseFormRegister } from "react-hook-form";
 
-import { Input } from './Input';
+import { Input } from "./Input";
 
-const core = require('@govbr-ds/core/dist/core');
+const core = require("@govbr-ds/core/dist/core");
 
 interface Props {
   id: string;
@@ -27,27 +27,30 @@ export const DateTimePicker = memo((props: Props) => {
   const brDateTimePickerRef = useRef<HTMLDivElement>(null);
   const [dateTimePickerCore, setDateTimePickerCore] = useState<any>();
 
-  useEffect(() => {
-    // A propriedade abaixo causa o erro:
-    // -> Error occurred (5:10349) - Maximum call stack size exceeded
-    // Removendo a propriedade do componente abaixo tudo volta a funcionar
-    // Verificar como construir o componente e remover este erro
-    const coreDateTimePicker = new core.BRDateTimePicker(
-      'br-datetimepicker',
-      brDateTimePickerRef.current,
-      {
-        minDate: '',
-        maxDate: new Date(),
-      }
-    );
-    setDateTimePickerCore(coreDateTimePicker);
-  }, [
-    // A propriedade abaixo causa o erro:
-    // -> Error occurred (5:10349) - Maximum call stack size exceeded
-    // Removendo a propriedade do componente abaixo tudo volta a funcionar
-    // Verificar como construir o componente e remover este erro
-    brDateTimePickerRef.current,
-  ]);
+  useEffect(
+    () => {
+      // A propriedade abaixo causa o erro:
+      // -> Error occurred (5:10349) - Maximum call stack size exceeded
+      // Removendo a propriedade do componente abaixo tudo volta a funcionar
+      // Verificar como construir o componente e remover este erro
+      const coreDateTimePicker = new core.BRDateTimePicker(
+        "br-datetimepicker",
+        brDateTimePickerRef.current,
+        {
+          minDate: "",
+          maxDate: new Date(),
+        }
+      );
+      setDateTimePickerCore(coreDateTimePicker);
+    },
+    [
+      // A propriedade abaixo causa o erro:
+      // -> Error occurred (5:10349) - Maximum call stack size exceeded
+      // Removendo a propriedade do componente abaixo tudo volta a funcionar
+      // Verificar como construir o componente e remover este erro
+      // brDateTimePickerRef.current,
+    ]
+  );
 
   const getItem = () => {
     if (brDateTimePickerRef.current) {
@@ -59,16 +62,16 @@ export const DateTimePicker = memo((props: Props) => {
   return (
     <div
       id={`datetimepicker-${props.id}`}
-      className={`${props.className || ''}`}
+      className={`${props.className || ""}`}
     >
       <div
         className="br-datetimepicker"
         data-mode="single"
-        data-type={`${props.withHour ? 'datetime-local' : 'text'}`}
+        data-type={`${props.withHour ? "datetime-local" : "text"}`}
         ref={brDateTimePickerRef}
         onFocus={getItem}
       >
-        <div className={`br-input has-icon ${props.danger || ''}`}>
+        <div className={`br-input has-icon ${props.danger || ""}`}>
           <label htmlFor={`datetimepicker-${props.id}-input`}>
             {props.label}
           </label>
@@ -80,7 +83,7 @@ export const DateTimePicker = memo((props: Props) => {
             disabled={props.disabled}
             placeholder={props.placeholder}
             defaultValue={props.defaultValue}
-            type={`${props.withHour ? 'datetime-local' : 'text'}`}
+            type={`${props.withHour ? "datetime-local" : "text"}`}
             onBlur={props.onBlur}
             register={props.register}
             onChange={props.onChange}
