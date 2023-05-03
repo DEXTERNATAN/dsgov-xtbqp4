@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { Select } from "../Components/Select";
+import { SelectNew } from "../Components/Selectv2";
 import Header from "../Components/Header";
 
 const SelectPage = () => {
@@ -28,14 +29,14 @@ const SelectPage = () => {
       <Header />
       <div className="p-5">
         <h4>Componente Select</h4>
-        <Select
-          id="decisao-filtro-tipo-processo-input"
-          label="Tipo"
-          name="tipoProcesso"
-          className="col-12 col-md-3 mb-3"
-          placeholder="Selecione o tipo de processo"
-          data={tiposProcessoLista}
-          register={register}
+        <SelectNew
+        // id="decisao-filtro-tipo-processo-input"
+        // label="Tipo"
+        // name="tipoProcesso"
+        // className="col-12 col-md-3 mb-3"
+        // placeholder="Selecione o tipo de processo"
+        // data={tiposProcessoLista}
+        // register={register}
         />
       </div>
     </>
