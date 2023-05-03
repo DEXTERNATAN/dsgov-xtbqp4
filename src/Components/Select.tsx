@@ -26,9 +26,14 @@ export const Select = (props: Props) => {
   const [selectCore, setSelectCore] = useState<any>();
   const brSelectRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    //brSelectRef.current && instanciarComponenteSelect();
-  }, [props.data]);
+  useEffect(
+    () => {
+      //brSelectRef.current && instanciarComponenteSelect();
+    },
+    [
+      //props.data
+    ]
+  );
 
   const getItem = () => {
     if (brSelectRef.current) {
