@@ -1,7 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { UseFormRegister } from 'react-hook-form';
+import React, { useEffect, useRef, useState } from "react";
+import { UseFormRegister } from "react-hook-form";
 
-const core = require('@govbr-ds/core/dist/core');
+const core = require("@govbr-ds/core/dist/core");
 
 interface Props {
   id: string;
@@ -27,13 +27,13 @@ export const Select = (props: Props) => {
   const brSelectRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    brSelectRef.current && instanciarComponenteSelect();
+    //brSelectRef.current && instanciarComponenteSelect();
   }, [props.data]);
 
   const getItem = () => {
     if (brSelectRef.current) {
       const brSelectInput: HTMLInputElement =
-        selectCore?.component.querySelector('.br-input input');
+        selectCore?.component.querySelector(".br-input input");
       const primeiroItemLista: HTMLInputElement =
         selectCore?.optionsList[0].element;
 
@@ -41,28 +41,28 @@ export const Select = (props: Props) => {
         selectCore.optionsList[0].selected = false;
       }
 
-      if (typeof selectCore?.selectedValue === 'string') {
+      if (typeof selectCore?.selectedValue === "string") {
         props.onChange && props.onChange(selectCore?.selectedValue);
       } else {
-        props.onChange && props.onChange('');
-        primeiroItemLista?.removeAttribute('checked');
-        primeiroItemLista?.classList.remove('selected');
+        props.onChange && props.onChange("");
+        primeiroItemLista?.removeAttribute("checked");
+        primeiroItemLista?.classList.remove("selected");
 
         if (brSelectInput?.value) {
-          brSelectInput.value = '';
+          brSelectInput.value = "";
         }
       }
     }
   };
 
   const instanciarComponenteSelect = () => {
-    const coreSelect = new core.BRSelect('br-select', brSelectRef.current);
+    const coreSelect = new core.BRSelect("br-select", brSelectRef.current);
 
     setSelectCore(coreSelect);
   };
 
   return (
-    <div className={`${props.className || ''}`}>
+    <div className={`${props.className || ""}`}>
       <div
         id={`select-${props.id}`}
         className="br-select"
@@ -104,12 +104,12 @@ export const Select = (props: Props) => {
                   id={`${props.id}-${index}`}
                   type="radio"
                   value={
-                    elemento[props.valueLabelItems?.value || ''] ||
+                    elemento[props.valueLabelItems?.value || ""] ||
                     elemento.codigo
                   }
                 />
                 <label htmlFor={`${props.id}-${index}`}>
-                  {elemento[props.valueLabelItems?.label || ''] ||
+                  {elemento[props.valueLabelItems?.label || ""] ||
                     elemento.descricao}
                 </label>
               </div>
