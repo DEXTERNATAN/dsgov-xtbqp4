@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { UseFormRegister } from "react-hook-form";
 
-const core = require("@govbr-ds/core/dist/core");
+// const core = require("@govbr-ds/core/dist/core");
 
 interface Props {
   id: string;
