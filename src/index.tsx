@@ -6,7 +6,7 @@ import '@govbr-ds/core/dist/core.min.css';
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Home from './pages/Home';
-// import DatePickerPage from "./pages/DatePicker";
+import DatePickerPage from './pages/DatePicker';
 import SelectPage from './pages/Select';
 
 // Add routes to project
@@ -15,10 +15,10 @@ const router = createBrowserRouter([
     path: '/',
     element: <Home />,
   },
-  // {
-  //   path: "/datepicker",
-  //   element: <DatePickerPage />,
-  // },
+  {
+    path: '/datepicker',
+    element: <DatePickerPage />,
+  },
   {
     path: '/select',
     element: <SelectPage />,
