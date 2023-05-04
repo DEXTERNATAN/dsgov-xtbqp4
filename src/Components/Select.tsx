@@ -26,15 +26,20 @@ export const Select = (props: Props) => {
   const [selectCore, setSelectCore] = useState<any>();
   const brSelectRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    brSelectRef.current && instanciarComponenteSelect();
-  }, [
-    // A propriedade abaixo causa o erro:
-    // -> Error occurred (5:10349) - Maximum call stack size exceeded
-    // Removendo a propriedade do componente abaixo tudo volta a funcionar
-    // Verificar como construir o componente e remover este erro
-    props.data,
-  ]);
+  useEffect(
+    () => {
+      // brSelectRef.current;
+      // &&
+      // instanciarComponenteSelect();
+    },
+    [
+      // A propriedade abaixo causa o erro:
+      // -> Error occurred (5:10349) - Maximum call stack size exceeded
+      // Removendo a propriedade do componente abaixo tudo volta a funcionar
+      // Verificar como construir o componente e remover este erro
+      //props.data,
+    ]
+  );
 
   const getItem = () => {
     if (brSelectRef.current) {
