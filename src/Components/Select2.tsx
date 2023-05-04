@@ -13,12 +13,10 @@ class Select extends Component {
     const selectList = [];
     for (const brSelect of window.document.querySelectorAll('.br-select')) {
       const brselect = new core.BRSelect('br-select', brSelect);
-      console.log('componentDidMount - select');
       brSelect.addEventListener('onChange', (ev) => this.getItem(brselect));
-      console.log(this.brSelect, brselect);
       // this.brSelect = brselect;
       selectList.push(brselect);
-      console.log(selectList.length);
+      console.log('Tamanho da lista', selectList.length);
     }
   }
 

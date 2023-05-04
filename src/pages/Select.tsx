@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-// import { Select } from '../Components/Select';
-import Select from '../Components/Select2';
+import { Select } from '../Components/Select';
+// import Select from '../Components/Select2';
 import Header from '../Components/Header';
 
 const SelectPage = () => {
@@ -54,8 +54,8 @@ const SelectPage = () => {
       <Header />
       <div className="p-5">
         <h4>Select</h4>
-        <Select data={estados} selected={estado} setSelected={setEstado} />
-        {/* <Select
+        {/* <Select data={estados} selected={estado} setSelected={setEstado} /> */}
+        <Select
           id="decisao-filtro-tipo-processo-input"
           label="Tipo"
           name="tipoProcesso"
@@ -63,7 +63,7 @@ const SelectPage = () => {
           placeholder="Selecione o tipo de processo"
           data={tiposProcessoLista}
           register={register}
-        /> */}
+        />
       </div>
     </>
   );
