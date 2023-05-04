@@ -3,80 +3,80 @@ import { UseFormRegister } from 'react-hook-form';
 
 const core = require('@govbr-ds/core/dist/core.min.js');
 
-// interface Props {
-//   id: string;
-//   data: any[];
-//   name: string;
-//   label: string;
-//   value?: string; //? Há value?
-//   error?: string;
-//   disabled?: boolean;
-//   className?: string;
-//   maxLength?: number; //? Há maxLength no Select?
-//   dataTestId?: string;
-//   placeholder: string;
-//   // O tipo ObjetoSimples é tido como padrão, onde o código e a descrição são utilizados
-//   // como valor e label. Para outros tipos, adicione os atributos na lista.
-//   valueLabelItems?: { value: string; label: string };
-//   register: UseFormRegister<any>;
-//   onChange?: (value: string) => void;
-// }
+interface Props {
+  id: string;
+  data: any[];
+  name: string;
+  label: string;
+  value?: string; //? Há value?
+  error?: string;
+  disabled?: boolean;
+  className?: string;
+  maxLength?: number; //? Há maxLength no Select?
+  dataTestId?: string;
+  placeholder: string;
+  // O tipo ObjetoSimples é tido como padrão, onde o código e a descrição são utilizados
+  // como valor e label. Para outros tipos, adicione os atributos na lista.
+  valueLabelItems?: { value: string; label: string };
+  register: UseFormRegister<any>;
+  onChange?: (value: string) => void;
+}
 
 export const Select = (props: Props) => {
-  // const [selectCore, setSelectCore] = useState<any>();
-  // const brSelectRef = useRef<HTMLDivElement>(null);
+  const [selectCore, setSelectCore] = useState<any>();
+  const brSelectRef = useRef<HTMLDivElement>(null);
 
   useEffect(
     () => {
-      // brSelectRef.current;
-      // &&
-      // instanciarComponenteSelect();
+      brSelectRef.current;
+      &&
+      instanciarComponenteSelect();
     },
     [
       // A propriedade abaixo causa o erro:
       // -> Error occurred (5:10349) - Maximum call stack size exceeded
       // Removendo a propriedade do componente abaixo tudo volta a funcionar
       // Verificar como construir o componente e remover este erro
-      //props.data,
+      props.data,
     ]
   );
 
-  // const getItem = () => {
-  //   if (brSelectRef.current) {
-  //     const brSelectInput: HTMLInputElement =
-  //       selectCore?.component.querySelector('.br-input input');
-  //     const primeiroItemLista: HTMLInputElement =
-  //       selectCore?.optionsList[0].element;
+  const getItem = () => {
+    if (brSelectRef.current) {
+      const brSelectInput: HTMLInputElement =
+        selectCore?.component.querySelector('.br-input input');
+      const primeiroItemLista: HTMLInputElement =
+        selectCore?.optionsList[0].element;
 
-  //     if (selectCore?.optionsList[0]) {
-  //       selectCore.optionsList[0].selected = false;
-  //     }
+      if (selectCore?.optionsList[0]) {
+        selectCore.optionsList[0].selected = false;
+      }
 
-  //     if (typeof selectCore?.selectedValue === 'string') {
-  //       props.onChange && props.onChange(selectCore?.selectedValue);
-  //     } else {
-  //       props.onChange && props.onChange('');
-  //       primeiroItemLista?.removeAttribute('checked');
-  //       primeiroItemLista?.classList.remove('selected');
+      if (typeof selectCore?.selectedValue === 'string') {
+        props.onChange && props.onChange(selectCore?.selectedValue);
+      } else {
+        props.onChange && props.onChange('');
+        primeiroItemLista?.removeAttribute('checked');
+        primeiroItemLista?.classList.remove('selected');
 
-  //       if (brSelectInput?.value) {
-  //         brSelectInput.value = '';
-  //       }
-  //     }
-  //   }
-  // };
+        if (brSelectInput?.value) {
+          brSelectInput.value = '';
+        }
+      }
+    }
+  };
 
-  // const instanciarComponenteSelect = () => {
-  //   const coreSelect = new core.BRSelect('br-select', brSelectRef.current);
+  const instanciarComponenteSelect = () => {
+    const coreSelect = new core.BRSelect('br-select', brSelectRef.current);
 
-  //   setSelectCore(coreSelect);
-  // };
+    setSelectCore(coreSelect);
+  };
 
   return (
     <div className={`${props.className || ''}`}>
       <p>Select</p>
 
-      {/* <div
+       <div
         id={`select-${props.id}`}
         className="br-select"
         ref={brSelectRef}
@@ -129,7 +129,7 @@ export const Select = (props: Props) => {
             </div>
           ))}
         </div>
-      </div> */}
+      </div> 
     </div>
   );
 };
