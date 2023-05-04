@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 // import { Select } from '../Components/Select';
-import { Select } from '../Components/Select';
+import Select from '../Components/Select2';
 import Header from '../Components/Header';
 
 const SelectPage = () => {
