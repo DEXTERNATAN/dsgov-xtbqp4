@@ -1,32 +1,32 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import "./index.css";
-import reportWebVitals from "./reportWebVitals";
-import "@govbr-ds/core/dist/core.min.css";
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import reportWebVitals from './reportWebVitals';
+import '@govbr-ds/core/dist/core.min.css';
 
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Home from "./pages/Home";
-import DatePickerPage from "./pages/DatePicker";
-import SelectPage from "./pages/Select";
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Home from './pages/Home';
+// import DatePickerPage from "./pages/DatePicker";
+import SelectPage from './pages/Select';
 
 // Add routes to project
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: <Home />,
   },
+  // {
+  //   path: "/datepicker",
+  //   element: <DatePickerPage />,
+  // },
   {
-    path: "/datepicker",
-    element: <DatePickerPage />,
-  },
-  {
-    path: "/select",
+    path: '/select',
     element: <SelectPage />,
   },
 ]);
 
 const root = ReactDOM.createRoot(
-  document.getElementById("root") as HTMLElement
+  document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
