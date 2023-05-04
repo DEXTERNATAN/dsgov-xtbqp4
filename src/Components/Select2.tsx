@@ -15,8 +15,10 @@ class Select extends Component {
       const brselect = new core.BRSelect('br-select', brSelect);
       console.log('componentDidMount - select');
       brSelect.addEventListener('onChange', (ev) => this.getItem(brselect));
-      this.brSelect = brselect;
+      console.log(this.brSelect, brselect);
+      // this.brSelect = brselect;
       selectList.push(brselect);
+      console.log(selectList.length);
     }
   }
 
