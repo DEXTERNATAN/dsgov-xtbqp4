@@ -3,7 +3,7 @@ import { UseFormRegister } from 'react-hook-form';
 
 import { Input } from './Input';
 
-const core = require('@govbr-ds/core/dist/core');
+const core = require('@govbr-ds/core/dist/core.min.js');
 
 interface Props {
   id: string;
