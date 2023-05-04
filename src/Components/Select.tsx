@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { UseFormRegister } from 'react-hook-form';
 
-const core = require('@govbr-ds/core/dist/core.min.js');
+const core = require('@govbr-ds/core/dist/core-base.js');
 
 interface Props {
   id: string;
@@ -27,7 +27,6 @@ export const Select = (props: Props) => {
   const brSelectRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    
     brSelectRef.current && instanciarComponenteSelect();
   }, [
     // A propriedade abaixo causa o erro:
@@ -63,7 +62,7 @@ export const Select = (props: Props) => {
   };
 
   const instanciarComponenteSelect = () => {
-    console.log('xpto')
+    console.log('xpto');
     const coreSelect = new core.BRSelect('br-select', brSelectRef.current);
 
     setSelectCore(coreSelect);
